@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title></title>
+    <link rel="stylesheet" type="text/css" href="http://cdn.sencha.com/ext/gpl/4.2.1/resources/css/ext-all.css">
+</head>
+<body>
+    <script type="text/javascript" src="http://cdn.sencha.com/ext/gpl/4.2.1/ext-all.js"></script>
+    <script type="text/javascript">
+
+        Ext.define('SessionModel', {
+            extend: 'Ext.data.Model',
+            fields: [
+				{ name: 'id', type: 'int' },
+				{ name: 'title', type: 'string' },
+				{ name: 'sessionLevel', type: 'int' },
+				{ name: 'approved', type: 'bool', defaultValue: false }
+            ],
+            validations: [
+				{ type: 'length', field: 'title', min: 3 },
+				{ type: 'inclusion', field: 'sessionLevel', list: [1, 2, 3] }
+
+            ],
+            proxy: {
+                type: 'rest',
+                url: '/api/session',
+                reader: {
+                    type: 'json'
+                }
+            }
+        });
+
+        //var sessionBringBack = Ext.ModelManager.getModel('SessionModel');
+
+        //sessionBringBack.load(3, {
+        //    success: function (session) {
+        //        console.log(session.getData());
+
+        //        session.destroy();
+        //    }
+        //})
+
+
+
+        var mySession1 = Ext.create('SessionModel', {
+            title: 'C+',
+            sessionLevel: 2,
+            approved: true
+        });
+
+        //mySession1.save({
+        //    success: function (session) {
+        //        console.log(session);
+
+        //        mySession1.set('approved', false);
+
+        //        mySession1.save({
+        //            success: function (session1) {
+        //                console.log(session1);
+        //            }
+        //        })
+        //    }
+        //});
+
+
+
+         if (!mySession1.isValid()) {
+         	var errors = mySession1.validate();
+         	errors.each(function (rec) {
+         		console.log(rec);
+         	});
+         } else {
+         	debugger;
+         }
+
+        var mySession2 = Ext.create('SessionModel', {
+            title: 'C#',
+            sessionLevel: 2
+        });
+
+        var mySession3 = Ext.create('SessionModel', {
+            title: 'C',
+            sessionLevel: 2
+        });
+
+
+    </script>
+</body>
+</html>
