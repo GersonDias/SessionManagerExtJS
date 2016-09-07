@@ -249,8 +249,12 @@
     <Content Include="Areas\HelpPage\Views\Help\DisplayTemplates\CollectionModelDescription.cshtml" />
     <Content Include="Areas\HelpPage\Views\Help\DisplayTemplates\ApiGroup.cshtml" />
     <Content Include="Areas\HelpPage\Views\Help\Api.cshtml" />
+    <Content Include="wwwroot\app.js" />
     <Content Include="wwwroot\app\ExtJsModels.html" />
-    <Content Include="wwwroot\app\index.html" />
+    <Content Include="wwwroot\app\view\MainView.js" />
+    <Content Include="wwwroot\app\view\Sessions.js" />
+    <Content Include="wwwroot\index.html" />
+    <Content Include="wwwroot\app\index_old.html" />
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
     <Content Include="Scripts\jquery-1.10.2.js" />
     <Content Include="Scripts\jquery-1.10.2.min.js" />
